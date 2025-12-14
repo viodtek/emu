@@ -373,10 +373,10 @@
                 name: "Organic Banana Bunch",
                 category: "food",
                 price: 3000,
-                image: "https://i.ibb.co/n857gRQn/image.png",
+                image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
                 images: [
-                    "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
                  "https://i.ibb.co/n857gRQn/image.png",
+                 "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
                  "https://i.ibb.co/yczs5Q7f/images.jpg"
                 ],
                 description: {
