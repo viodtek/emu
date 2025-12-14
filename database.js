@@ -375,7 +375,9 @@
                 price: 3000,
                 image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
                 images: [
-                    "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                    "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                 "https://i.ibb.co/n857gRQn/image.png",
+                 "https://i.ibb.co/yczs5Q7f/images.jpg"
                 ],
                 description: {
                     en: "Fresh organic bananas, rich in potassium and vitamins. Grown in the fertile lands of Rwanda.",
