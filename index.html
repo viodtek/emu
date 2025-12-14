@@ -1,0 +1,1889 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- High-End SEO Meta Tags for Rwanda & Global Market -->
+    <link rel="icon" type="image/svg+xml" href="emu.svg">
+    <!-- <link rel="icon" type="image/png+xml" href="emu.png"> -->
+    <title>Emu Mart Rwanda | Online Shopping mall for Tech, Clothes, Food & Crafts in Rwanda</title>
+    <meta name="description" content="Emu Mart Rwanda - Best online store in Rwanda for tech gadgets, clothes, tools, LED wall arts, Rwandan crafts, food & snacks. Free delivery in Kigali. Shop now!">
+    <meta name="keywords" content="Rwanda online shopping, Kigali ecommerce, tech gadgets Rwanda, clothes Rwanda, Rwandan crafts, food delivery Rwanda, LED wall arts, tools Rwanda">
+    <meta name="author" content="Emu Mart Rwanda">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    
+    <!-- Geographic Targeting -->
+    <meta name="geo.region" content="RW">
+    <meta name="geo.placename" content="Kigali">
+    <meta name="geo.position" content="-1.9441;30.0619">
+    <meta name="ICBM" content="-1.9441, 30.0619">
+    
+    <!-- Open Graph for Social Media -->
+    <meta property="og:title" content="Emu Mart Rwanda | Online Shopping Store">
+    <meta property="og:description" content="Shop tech gadgets, clothes, Rwandan crafts, food & more at Emu Mart Rwanda. Best prices & free delivery in Kigali.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://emumart.rw">
+    <meta property="og:image" content="https://emumart.rw/images/logo.png">
+    <meta property="og:site_name" content="Emu Mart Rwanda">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Emu Mart Rwanda | Online Shopping">
+    <meta name="twitter:description" content="Your one-stop online shop in Rwanda for everything you need. Tech, clothes, crafts, food & more.">
+    <meta name="twitter:image" content="https://emumart.rw/images/logo.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://emumart.rw">
+    
+    <!-- Schema.org Structured Data for E-commerce -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "OnlineStore",
+        "name": "Emu Mart Rwanda",
+        "description": "Online shopping store in Rwanda offering tech gadgets, clothes, tools, LED wall arts, Rwandan crafts, food and snacks",
+        "url": "https://emumart.rw",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Kigali",
+            "addressRegion": "Kigali City",
+            "addressCountry": "RW"
+        },
+        "openingHours": "Mo-Su 08:00-20:00",
+        "telephone": "+250785762690",
+        "priceRange": "FRW 3,000 - FRW 500,000",
+        "image": "https://emumart.rw/images/logo.png"
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --dark: #212529;
+            --light: #f8f9fa;
+            --success: #4cc9f0;
+            --danger: #e63946;
+            --warning: #f4a261;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Loading Animation */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .loading-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loading-spinner {
+            width: 70px;
+            height: 70px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .loading-dots {
+            display: inline-block;
+            width: 20px;
+            text-align: left;
+        }
+        
+        .loading-dots::after {
+            content: '...';
+            animation: dots 1.5s steps(4, end) infinite;
+        }
+        
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60%, 100% { content: '...'; }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .bird-logo {
+            width: 60px;
+            height: 60px;
+/*            border-radius: 50%;*/
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bird-logo img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        
+        .logo-main {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo-sub {
+            font-size: 0.8rem;
+            color: #666;
+            font-weight: normal;
+        }
+        
+        .language-switcher {
+            display: flex;
+            gap: 0.5rem;
+            margin-left: 1rem;
+        }
+        
+        .lang-btn {
+            padding: 0.4rem 0.8rem;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 2rem;
+            position: relative;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 0.8rem 1rem 0.8rem 2.5rem;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+        }
+        
+        .search-bar i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+        
+        .cart-icon {
+            position: relative;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--danger);
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Navigation */
+        nav {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            padding: 0.8rem 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .categories {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 0.5rem 0rem;
+            position: relative;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            white-space: nowrap;
+            font-family: 'Jost', sans-serif;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+/*            background: rgba(255, 255, 255, 0.2);*/
+            color: var(--success);
+        }
+        
+        .category-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            width: 80%;
+            height: 2px;
+            background: var(--success);
+        }
+        
+        .filter-sort {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .filter-sort select {
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            border: none;
+            background: white;
+            color: var(--dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+             background: linear-gradient(rgba(67, 97, 238, 0.6), rgba(63, 55, 201, 0.9)), url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1s ease;
+        }
+        
+        /* Products Section */
+        .products-section {
+            padding: 2rem 0 4rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            animation: fadeInUp 0.5s ease;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .product-card:nth-child(1) { animation-delay: 0.1s; }
+        .product-card:nth-child(2) { animation-delay: 0.2s; }
+        .product-card:nth-child(3) { animation-delay: 0.3s; }
+        .product-card:nth-child(4) { animation-delay: 0.4s; }
+        .product-card:nth-child(5) { animation-delay: 0.5s; }
+        .product-card:nth-child(6) { animation-delay: 0.6s; }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--danger);
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .product-image {
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+            background-color: #f5f5f5;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-category {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .product-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            height: 40px;
+            overflow: hidden;
+        }
+        
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .product-variations {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .variation-btn {
+            padding: 0.3rem 0.6rem;
+            background: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .variation-btn:hover, .variation-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .buy-btn {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .buy-btn:hover {
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+        /* Hide navigation on single product page */
+body:has(.product-detail-section) nav {
+    display: none;
+}
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Single Product Page */
+        .product-detail-section {
+            padding: 3rem 0;
+        }
+        
+        .product-detail-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .product-detail-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .product-image-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .main-product-image {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.5s ease;
+        }
+        
+        .main-product-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .product-thumbnails {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+        
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            background-color: #f5f5f5;
+        }
+        
+        .thumbnail:hover, .thumbnail.active {
+            border-color: var(--primary);
+            transform: scale(1.1);
+        }
+        
+        .product-details {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            animation: slideInRight 0.8s ease;
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .detail-category {
+            color: var(--accent);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        
+        .detail-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .detail-price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .detail-description {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+        
+        .detail-features {
+            margin-bottom: 2rem;
+        }
+        
+        .detail-features h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .detail-features ul {
+            list-style-position: inside;
+            margin-left: 1rem;
+        }
+        
+        .detail-features li {
+            margin-bottom: 0.8rem;
+            color: #555;
+        }
+        
+        .detail-variations {
+            margin-bottom: 2rem;
+        }
+        
+        .variation-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .variation-group h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+        }
+        
+        .color-options {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        
+        .color-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .color-option:hover, .color-option.active {
+            border-color: var(--primary);
+            transform: scale(1.1);
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .quantity-selector label {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .quantity-selector input {
+            width: 70px;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .selected-variations {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .selected-variations h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .selected-variations-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .selected-variation {
+            background: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 0.9rem;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            color: var(--secondary);
+            transform: translateX(-5px);
+        }
+        
+        .back-btn i {
+            margin-right: 0.5rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            .search-bar {
+                order: 3;
+                margin: 1rem 0 0;
+                max-width: 100%;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .categories {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .logo-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            
+            .language-switcher {
+                margin-left: 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .products-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .filter-sort {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .logo-text .logo-main {
+                font-size: 1.4rem;
+            }
+            
+            .category-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+            <img src="emu.svg" style="position: fixed;margin-bottom: 50px;" >
+        <div class="loading-spinner">
+        </div>
+        <div class="loading-text">Emu Mart Rwanda <span class="loading-dots"></span></div>
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <a href="index.html" class="logo">
+                    <div class="bird-logo">
+                        <img src="emu.svg" alt="Emu Mart Rwanda Logo - Online Shopping Store">
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-main" data-en="Emu Mart" data-rw="Emu Mart Rwanda">Emu Mart</span>
+                        <span class="logo-sub" data-en="Online Shopping Rwanda" data-rw="Gurira kuri interineti m'Urwanda">Online Shopping Rwanda</span>
+                    </div>
+                </a>
+                
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="rw">RW</button>
+                </div>
+            </div>
+            
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search for products..." data-en-placeholder="Search for products..." data-rw-placeholder="Shakisha ibicuruzwa...">
+            </div>
+            
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">!</span>
+            </div>
+        </div>
+        
+        <nav>
+            <div class="container nav-container">
+                <ul class="categories">
+                    <li><button class="category-btn active" data-category="all" data-en="All Products" data-rw="Ibicuruzwa Byose">All Products</button></li>
+                    <li><button class="category-btn" data-category="tech" data-en="Tech Gadgets" data-rw="Ikoranabuhanga">Tech Gadgets</button></li>
+                    <li><button class="category-btn" data-category="devices" data-en="Devices" data-rw="Ibikoresho bya Electronics">Devices</button></li>
+                    <li><button class="category-btn" data-category="clothes" data-en="Clothes" data-rw="Imyenda">Clothes</button></li>
+                    <li><button class="category-btn" data-category="tools" data-en="Tools" data-rw="Ibikoresho">Tools</button></li>
+                    <li><button class="category-btn" data-category="arts" data-en="LED Wall Arts" data-rw="Amatara y'Imitako LED">LED Wall Arts</button></li>
+                    <li><button class="category-btn" data-category="crafts" data-en="Rwandan Crafts" data-rw="Ubugeni n'Umuco">Rwandan Crafts</button></li>
+                    <li><button class="category-btn" data-category="food" data-en="Food & Snacks" data-rw="Ibiribwa n'ibinyobwa">Food & Snacks</button></li>
+                </ul>
+                
+                <div class="filter-sort">
+                    <select id="sortBy">
+                        <option value="default" data-en="Sort By" data-rw="Gutondekanya">Sort By</option>
+                        <option value="price-low" data-en="Price: Low to High" data-rw="Igiciro: Guke ku gihe">Price: Low to High</option>
+                        <option value="price-high" data-en="Price: High to Low" data-rw="Igiciro: Gihe ku gike">Price: High to Low</option>
+                        <option value="name" data-en="Name: A to Z" data-rw="Izina: A kugeza Z">Name: A to Z</option>
+                    </select>
+                    
+                    <select id="priceFilter">
+                        <option value="all" data-en="All Prices" data-rw="Amafaranga Yose">All Prices</option>
+                        <option value="0-10000" data-en="Under 10,000 FRW" data-rw="Hasi ya 10,000 FRW">Under 10,000 FRW</option>
+                        <option value="10000-50000" data-en="10,000 - 50,000 FRW" data-rw="10,000 - 50,000 FRW">10,000 - 50,000 FRW</option>
+                        <option value="50000-100000" data-en="50,000 - 100,000 FRW" data-rw="50,000 - 100,000 FRW">50,000 - 100,000 FRW</option>
+                        <option value="100000+" data-en="Over 100,000 FRW" data-rw="Hejuru ya 100,000 FRW">Over 100,000 FRW</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Landing Page (default) -->
+        <section class="hero">
+            <div class="container">
+                <h1 data-en="Discover Nice Products in Rwanda" data-rw="Gurira Wisanzuye online m'URwanda">Discover Nice Products in Rwanda</h1>
+                <p data-en="From cutting-edge tech gadgets to stylish clothes, tools, wall arts, Rwandan crafts, and fresh food - find everything you need at Emu Mart Rwanda!" data-rw="Kuva mu bikoresho bya tekinoloji, impuzu z'umwimerere, ibikoresho, ubugeni ku rukuta, ubugeni bw'umuco Rwandais, n'ibiryo - shakisha ibyo ukeneye kuri Emu Mart Rwanda!">From cutting-edge tech gadgets to stylish clothes, tools, wall arts, Rwandan crafts, and fresh food - find everything you need at Emu Mart Rwanda!</p>
+                <a href="#products" class="buy-btn" style="width: auto; display: inline-block; padding: 0.8rem 2rem;" data-en="Shop Now" data-rw="Gurira Aha" >Shop Now</a>
+            </div>
+            <!-- <div class="popup">
+                <img src="">
+                <style type="text/css">
+                    .popup{
+                        position: fixed;
+                        background: white;
+                        border: 10px solid lavender;
+                        height: 170px;
+                        width: 258px;
+                        border-radius: 15px;
+                        margin-left: 5em;
+                    }
+                </style>
+            </div> -->
+        </section>
+        
+        <section id="products" class="products-section">
+            <div class="container">
+                <h2 class="section-title" data-en="Featured Products" data-rw="Ibicuruzwa Byiza">All Products</h2>
+                <div id="products-container" class="products-grid">
+                    <!-- Products will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-column">
+                <h3 data-en="Emu Mart" data-rw="Emu Mart Rwanda">Emu Mart</h3>
+                <p data-en="Your one-stop online shop in Rwanda for tech gadgets, clothes, tools, wall arts, Rwandan crafts, and fresh food. Quality products at affordable prices with affordable delivery in Kigali." data-rw="Aho wagura ibikoresho by'Ikoranabuhanga, Imyenda, ibikoresho bitandukanye, Imitako yomunzu, ubugeni n'umuco, n'ibiri bwa nyarwanda. Gura Ibicuruzwa byiza mu mujyi wa Kigali.">Your one-stop online shop in Rwanda for tech gadgets, clothes, tools, wall arts, Rwandan crafts, and fresh food. Quality products at affordable prices with affordable delivery in Kigali.</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3 data-en="Categories" data-rw="Ibyiciro">Categories</h3>
+                <ul>
+                    <li><a href="#" class="category-link" data-category="tech">Tech Gadgets</a></li>
+                    <li><a href="#" class="category-link" data-category="clothes">Clothing</a></li>
+                    <li><a href="#" class="category-link" data-category="arts"></a></li>
+                    <li><a href="#" class="category-link" data-category="crafts">Rwandan Crafts</a></li>
+                    <li><a href="#" class="category-link" data-category="food">Food & Snacks</a></li>
+                    <li><a href="#" class="category-link" data-category="drinks"></a></li>
+                    <li><a href="#" class="category-link" data-category="snacks"></a></li>
+                    <li><a href="#" class="category-link" data-category="devices"></a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3 data-en="Contact Us" data-rw="Twandikire">Contact Us</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +250 785 762 690</li>
+                    <li><i class="fas fa-envelope"></i> info@emumart.rw</li>
+                    <li><i class="fas fa-map-marker-alt"></i> <span data-en="Kigali, Rwanda" data-rw="Kigali, Rwanda">Kigali, Rwanda</span></li>
+                    <li><i class="fab fa-whatsapp"></i> <span data-en="Order via WhatsApp" data-rw="Tumiza kuri WhatsApp">Order via WhatsApp</span></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3 data-en="Delivery Information" data-rw="Amakuru yo gutumiza">Delivery Information</h3>
+                <p data-en="Free delivery within Kigali city for orders above 35,000 FRW. Same-day delivery available for orders placed before 2 PM." data-rw="Watumiza ku buntu mu mujyi wa Kigali igihe uguze ibirihejuru ya FRW 35,000 FRW mbere ya 2 PM. Ubitumiza kuri uwo munsi ugahita ubibona.">Free delivery within Kigali city for orders above 35,000 FRW. Same-day delivery available for orders placed before 2 PM.</p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <p class="copyright">© 2025 Emu Mart Rwanda. <span data-en="All rights reserved." data-rw="Amategeko n'amabwiriza birubahirizwa.">All rights reserved.</span> | <span data-en="Online Shopping Rwanda" data-rw="Gurira kuri interineti m'URwanda">Online Shopping Rwanda</span></p>
+        </div>
+    </footer>
+
+
+    <!-- database -->
+    <script src="database.js"></script>
+    
+    <!-- Product Data and JavaScript -->
+    <script type="text/javascript">
+   
+        // Language management
+        let currentLang = 'en';
+        
+        // Store selected variations for WhatsApp message
+        let selectedVariations = {};
+        
+       
+        
+        // Language translations
+        const translations = {
+            en: {
+                "buyNow": "Buy Now",
+                "buyNowWhatsApp": "Buy Now on WhatsApp",
+                "quantity": "Quantity:",
+                "productFeatures": "Product Features",
+                "backToProducts": "Back to Products",
+                "selectedVariations": "Selected Options:",
+                "whatsappOrderMessage": "Hello! I would like to order from Emu Mart Rwanda:\n\n*{productName}*\nPrice: {price} FRW\nQuantity: {quantity}\n\nSelected Options:\n{variations}\n\nProduct Link: {productLink}\n\nPlease contact me for delivery details. Thank you!",
+                "sortOptions": {
+                    "default": "Sort By",
+                    "price-low": "Price: Low to High",
+                    "price-high": "Price: High to Low",
+                    "name": "Name: A to Z"
+                },
+                "priceFilters": {
+                    "all": "All Prices",
+                    "0-10000": "Under 10,000 FRW",
+                    "10000-50000": "10,000 - 50,000 FRW",
+                    "50000-100000": "50,000 - 100,000 FRW",
+                    "100000+": "Over 100,000 FRW"
+                }
+            },
+            rw: {
+                "buyNow": "Gura Nonaha",
+                "buyNowWhatsApp": "Gurira Aha kuri WhatsApp",
+                "quantity": "Umubare:",
+                "productFeatures": "Ibiranga Igicuruzwa",
+                "backToProducts": "Subira ku Bicuruzwa",
+                "selectedVariations": "Ibyahiswemo:",
+                "whatsappOrderMessage": "Mwaramutse! Nshaka kugura kuri Emu Mart Rwanda:\n\n*{productName}*\nIgiciro: {price} FRW\nUmubare: {quantity}\n\nIbyahiswemo:\n{variations}\n\nUmurongo w'igicuruzwa: {productLink}\n\nNyamuneka muntumire kuri terefone kugirango mbashe gutanga serivisi. Murakoze!",
+                "sortOptions": {
+                    "default": "Gutondekanya",
+                    "price-low": "Igiciro: Guke ku gihe",
+                    "price-high": "Igiciro: Gihe ku gike",
+                    "name": "Izina: A kugeza Z"
+                },
+                "priceFilters": {
+                    "all": "Amafaranga Yose",
+                    "0-10000": "Hasi ya 10,000 FRW",
+                    "10000-50000": "10,000 - 50,000 FRW",
+                    "50000-100000": "50,000 - 100,000 FRW",
+                    "100000+": "Hejuru ya 100,000 FRW"
+                }
+            }
+        };
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide loading screen after 1.5 seconds
+            setTimeout(() => {
+                document.getElementById('loadingOverlay').classList.add('hidden');
+            }, 1500);
+            
+            // Setup language switcher
+            setupLanguageSwitcher();
+            
+            // Check if we're on a product detail page
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('product');
+            
+            if (productId) {
+                // Load single product page
+                loadProductDetail(parseInt(productId));
+            } else {
+                // Load landing page with all products
+                loadProducts(products);
+                setupEventListeners();
+            }
+            
+            // Setup category links in footer
+            document.querySelectorAll('.category-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const category = this.getAttribute('data-category');
+                    
+                    // Update active category button
+                    document.querySelectorAll('.category-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                        if (btn.getAttribute('data-category') === category) {
+                            btn.classList.add('active');
+                        }
+                    });
+                    
+                    // Filter products
+                    filterProducts(category);
+                    
+                    // Scroll to products section
+                    document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+        
+        // Function to setup language switcher
+        function setupLanguageSwitcher() {
+            // Set initial language from localStorage or default to English
+            const savedLang = localStorage.getItem('emumart-language');
+            if (savedLang) {
+                currentLang = savedLang;
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.getAttribute('data-lang') === savedLang);
+                });
+            }
+            
+            // Update all translatable elements
+            updateLanguage();
+            
+            // Add click events to language buttons
+            document.querySelectorAll('.lang-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    if (lang !== currentLang) {
+                        currentLang = lang;
+                        localStorage.setItem('emumart-language', lang);
+                        
+                        // Update active button
+                        document.querySelectorAll('.lang-btn').forEach(btn => {
+                            btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+                        });
+                        
+                        // Update all translatable elements
+                        updateLanguage();
+                        
+                        // Update product descriptions if on product page
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const productId = urlParams.get('product');
+                        if (productId) {
+                            loadProductDetail(parseInt(productId));
+                        } else {
+                            loadProducts(products);
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Function to update language on all elements
+        function updateLanguage() {
+            // Update elements with data-en and data-rw attributes
+            document.querySelectorAll('[data-en]').forEach(element => {
+                if (currentLang === 'en') {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = element.getAttribute('data-en-placeholder') || element.getAttribute('data-en');
+                    } else {
+                        element.textContent = element.getAttribute('data-en');
+                    }
+                } else {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = element.getAttribute('data-rw-placeholder') || element.getAttribute('data-rw');
+                    } else {
+                        element.textContent = element.getAttribute('data-rw');
+                    }
+                }
+            });
+            
+            // Update select options
+            updateSelectOptions();
+            
+            // Update HTML lang attribute
+            document.getElementById('html-root').setAttribute('lang', currentLang);
+        }
+        
+        // Function to update select options based on language
+        function updateSelectOptions() {
+            const sortSelect = document.getElementById('sortBy');
+            if (sortSelect) {
+                Array.from(sortSelect.options).forEach(option => {
+                    const value = option.value;
+                    if (translations[currentLang].sortOptions[value]) {
+                        option.textContent = translations[currentLang].sortOptions[value];
+                    }
+                });
+            }
+            
+            const priceSelect = document.getElementById('priceFilter');
+            if (priceSelect) {
+                Array.from(priceSelect.options).forEach(option => {
+                    const value = option.value;
+                    if (translations[currentLang].priceFilters[value]) {
+                        option.textContent = translations[currentLang].priceFilters[value];
+                    }
+                });
+            }
+        }
+        
+        // Function to load products on landing page
+        function loadProducts(productsToShow) {
+            const productsContainer = document.getElementById('products-container');
+            if (!productsContainer) return;
+            
+            productsContainer.innerHTML = '';
+            
+            if (productsToShow.length === 0) {
+                productsContainer.innerHTML = `
+                    <div class="no-products" style="grid-column: 1/-1; text-align: center; padding: 3rem;">
+                        <h3>No products found</h3>
+                        <p>Try changing your search or filter criteria</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            productsToShow.forEach((product, index) => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.dataset.category = Array.isArray(product.category) ? product.category[0] : product.category;
+                productCard.dataset.price = product.price;
+                productCard.style.animationDelay = `${index * 0.1}s`;
+                
+                let badgeHTML = '';
+                if (product.badge) {
+                    badgeHTML = `<span class="product-badge">${product.badge}</span>`;
+                }
+                
+                let variationsHTML = '';
+                if (product.variations && product.variations.color) {
+                    variationsHTML = `<div class="product-variations">`;
+                    product.variations.color.slice(0, 3).forEach(color => {
+                        variationsHTML += `<span class="variation-btn">${color}</span>`;
+                    });
+                    if (product.variations.color.length > 3) {
+                        variationsHTML += `<span class="variation-btn">+${product.variations.color.length - 3}</span>`;
+                    }
+                    variationsHTML += `</div>`;
+                }
+                
+                productCard.innerHTML = `
+                    ${badgeHTML}
+                    <img src="${product.image}" alt="${product.name} - Emu Mart Rwanda" class="product-image" onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'">
+                    <div class="product-info">
+                        <div class="product-category">${getCategoryName(product.category)}</div>
+                        <h3 class="product-title">${product.name}</h3>
+                        <p class="product-description">${product.description[currentLang] || product.description.en}</p>
+                        ${variationsHTML}
+                        <div class="product-price">${formatPrice(product.price)} FRW</div>
+                        <a href="#" class="buy-btn" data-product-id="${product.id}">${translations[currentLang].buyNow}</a>
+                    </div>
+                `;
+                
+                productsContainer.appendChild(productCard);
+            });
+            
+            // Add event listeners to buy buttons
+            document.querySelectorAll('.buy-btn').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const productId = this.getAttribute('data-product-id');
+                    if (productId) {
+                        const product = products.find(p => p.id === parseInt(productId));
+                        if (product) {
+                            // For product listing page, just go to product detail page
+                            window.location.href = `?product=${productId}`;
+                        }
+                    }
+                });
+            });
+            
+            // Add event listeners to product cards for single product page
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Don't navigate if clicking on buy button or variation buttons
+                    if (e.target.classList.contains('buy-btn') || e.target.classList.contains('variation-btn')) {
+                        return;
+                    }
+                    
+                    const productId = this.querySelector('.buy-btn').getAttribute('data-product-id');
+                    if (productId) {
+                        window.location.href = `?product=${productId}`;
+                    }
+                });
+            });
+        }
+        
+        // Function to load single product detail page
+        function loadProductDetail(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Reset selected variations for this product
+            selectedVariations = {};
+            
+            // Change main content to single product view
+            const mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = `
+                <div class="container">
+                    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> ${translations[currentLang].backToProducts}</a>
+                </div>
+                <section class="product-detail-section">
+                    <div class="container product-detail-container">
+                        <div class="product-image-gallery">
+                            <img src="${product.images[0]}" alt="${product.name} - Emu Mart Rwanda" class="main-product-image" id="main-product-image" onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'">
+                            <div class="product-thumbnails">
+                                ${product.images.map((img, index) => `
+                                    <img src="${img}" alt="${product.name} - View ${index+1}" class="thumbnail ${index === 0 ? 'active' : ''}" data-image="${img}" onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'">
+                                `).join('')}
+                            </div>
+                        </div>
+                        
+                        <div class="product-details">
+                            <div class="detail-category">${getCategoryName(product.category)}</div>
+                            <h1 class="detail-title">${product.name}</h1>
+                            <div class="detail-price">${formatPrice(product.price)} FRW</div>
+                            <p class="detail-description">${product.description[currentLang] || product.description.en}</p>
+                            
+                            <div class="detail-features">
+                                <h3>${translations[currentLang].productFeatures}</h3>
+                                <ul>
+                                    ${(product.features[currentLang] || product.features.en).map(feature => `<li>${feature}</li>`).join('')}
+                                </ul>
+                            </div>
+                            
+                            ${renderProductVariations(product)}
+                            
+                            <div class="selected-variations" id="selectedVariationsContainer" style="display: none;">
+                                <h4>${translations[currentLang].selectedVariations}</h4>
+                                <div class="selected-variations-list" id="selectedVariationsList"></div>
+                            </div>
+                            
+                            <div class="quantity-selector">
+                                <label for="quantity">${translations[currentLang].quantity}</label>
+                                <input type="number" id="quantity" name="quantity" value="1" min="1" max="10">
+                            </div>
+                            
+                            <a href="#" class="buy-btn" id="product-buy-btn" data-product-id="${product.id}">${translations[currentLang].buyNowWhatsApp}</a>
+                        </div>
+                    </div>
+                </section>
+            `;
+            
+            // Set up thumbnail click events
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    const mainImage = document.getElementById('main-product-image');
+                    mainImage.src = this.getAttribute('data-image');
+                    
+                    document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Set up variation selection events
+            setupVariationEvents(product);
+            
+            // Set up buy button event
+            document.getElementById('product-buy-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                const quantity = document.getElementById('quantity').value;
+                openWhatsAppOrder(product, quantity);
+            });
+            
+            // Update page title for SEO
+            document.title = `${product.name} - ${formatPrice(product.price)} FRW | Emu Mart Rwanda`;
+            
+            // Update meta description for SEO
+            const metaDescription = document.querySelector('meta[name="description"]');
+            if (metaDescription) {
+                metaDescription.content = `Buy ${product.name} for ${formatPrice(product.price)} FRW at Emu Mart Rwanda. ${product.description.en.substring(0, 150)}...`;
+            }
+        }
+        
+        // Function to setup variation selection events
+        function setupVariationEvents(product) {
+            // Color options
+            document.querySelectorAll('.color-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const color = this.getAttribute('data-color');
+                    
+                    // Remove active class from all color options
+                    document.querySelectorAll('.color-option').forEach(opt => {
+                        opt.classList.remove('active');
+                    });
+                    
+                    // Add active class to selected option
+                    this.classList.add('active');
+                    
+                    // Store selected color
+                    selectedVariations.color = color;
+                    
+                    // Update selected variations display
+                    updateSelectedVariationsDisplay();
+                });
+            });
+            
+            // Variation buttons (size, type, storage, ram)
+            document.querySelectorAll('.variation-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const variationType = this.hasAttribute('data-size') ? 'size' :
+                                        this.hasAttribute('data-type') ? 'type' :
+                                        this.hasAttribute('data-storage') ? 'storage' :
+                                        this.hasAttribute('data-ram') ? 'ram' : 'option';
+                    
+                    const value = this.getAttribute(`data-${variationType}`) || this.textContent;
+                    
+                    // Remove active class from all buttons in same group
+                    const parent = this.parentElement;
+                    parent.querySelectorAll('.variation-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // Add active class to selected button
+                    this.classList.add('active');
+                    
+                    // Store selected variation
+                    selectedVariations[variationType] = value;
+                    
+                    // Update selected variations display
+                    updateSelectedVariationsDisplay();
+                });
+            });
+        }
+        
+        // Function to update selected variations display
+        function updateSelectedVariationsDisplay() {
+            const container = document.getElementById('selectedVariationsContainer');
+            const list = document.getElementById('selectedVariationsList');
+            
+            if (!container || !list) return;
+            
+            // Clear current list
+            list.innerHTML = '';
+            
+            // Add each selected variation
+            Object.keys(selectedVariations).forEach(key => {
+                if (selectedVariations[key]) {
+                    const item = document.createElement('div');
+                    item.className = 'selected-variation';
+                    item.textContent = `${key}: ${selectedVariations[key]}`;
+                    list.appendChild(item);
+                }
+            });
+            
+            // Show or hide container based on whether we have selected variations
+            if (Object.keys(selectedVariations).length > 0) {
+                container.style.display = 'block';
+            } else {
+                container.style.display = 'none';
+            }
+        }
+        
+        // Function to render product variations
+        function renderProductVariations(product) {
+            if (!product.variations) return '';
+            
+            let html = '<div class="detail-variations">';
+            
+            // Color variations
+            if (product.variations.color) {
+                html += `
+                    <div class="variation-group">
+                        <h4>Color</h4>
+                        <div class="color-options">
+                            ${product.variations.color.map((color, index) => `
+                                <div class="color-option ${index === 0 ? 'active' : ''}" 
+                                     style="background-color: ${getColorValue(color)}"
+                                     title="${color}"
+                                     data-color="${color}">
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                
+                // Set default selected color
+                if (product.variations.color[0]) {
+                    selectedVariations.color = product.variations.color[0];
+                }
+            }
+            
+            // Size variations
+            if (product.variations.size) {
+                html += `
+                    <div class="variation-group">
+                        <h4>Size</h4>
+                        <div class="product-variations">
+                            ${product.variations.size.map((size, index) => `
+                                <span class="variation-btn ${index === 0 ? 'active' : ''}" data-size="${size}">${size}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                
+                // Set default selected size
+                if (product.variations.size[0]) {
+                    selectedVariations.size = product.variations.size[0];
+                }
+            }
+            
+            // Storage variations
+            if (product.variations.storage) {
+                html += `
+                    <div class="variation-group">
+                        <h4>Storage</h4>
+                        <div class="product-variations">
+                            ${product.variations.storage.map((storage, index) => `
+                                <span class="variation-btn ${index === 0 ? 'active' : ''}" data-storage="${storage}">${storage}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                
+                // Set default selected storage
+                if (product.variations.storage[0]) {
+                    selectedVariations.storage = product.variations.storage[0];
+                }
+            }
+            
+            // Type variations
+            if (product.variations.type) {
+                html += `
+                    <div class="variation-group">
+                        <h4>Type</h4>
+                        <div class="product-variations">
+                            ${product.variations.type.map((type, index) => `
+                                <span class="variation-btn ${index === 0 ? 'active' : ''}" data-type="${type}">${type}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                
+                // Set default selected type
+                if (product.variations.type[0]) {
+                    selectedVariations.type = product.variations.type[0];
+                }
+            }
+            
+            // RAM variations
+            if (product.variations.ram) {
+                html += `
+                    <div class="variation-group">
+                        <h4>RAM</h4>
+                        <div class="product-variations">
+                            ${product.variations.ram.map((ram, index) => `
+                                <span class="variation-btn ${index === 0 ? 'active' : ''}" data-ram="${ram}">${ram}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                
+                // Set default selected RAM
+                if (product.variations.ram[0]) {
+                    selectedVariations.ram = product.variations.ram[0];
+                }
+            }
+            
+            // Ripeness variations (for food)
+            if (product.variations.ripeness) {
+                html += `
+                    <div class="variation-group">
+                        <h4>Ripeness</h4>
+                        <div class="product-variations">
+                            ${product.variations.ripeness.map((ripeness, index) => `
+                                <span class="variation-btn ${index === 0 ? 'active' : ''}" data-ripeness="${ripeness}">${ripeness}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                
+                // Set default selected ripeness
+                if (product.variations.ripeness[0]) {
+                    selectedVariations.ripeness = product.variations.ripeness[0];
+                }
+            }
+            
+            html += '</div>';
+            return html;
+        }
+        
+        // Function to get color value from color name
+        function getColorValue(colorName) {
+            const colorMap = {
+                'Black': '#000000',
+                'White': '#ffffff',
+                'Blue': '#4361ee',
+                'Red': '#e63946',
+                'Gray': '#adb5bd',
+                'Green': '#4cc9f0',
+                'Silver': '#c0c0c0',
+                'Rose Gold': '#b76e79',
+                'Midnight Black': '#191970',
+                'Arctic White': '#f8f9fa',
+                'Ocean Blue': '#0077b6',
+                'Sunset Gold': '#ffd166',
+                'Blue Floral': '#4895ef',
+                'Pink Floral': '#f72585',
+                'Yellow Floral': '#ffd166',
+                'Warm White': '#f8f9fa',
+                'Multicolor': 'linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)',
+                'Nebula Effect': 'linear-gradient(to right, #4361ee, #3a0ca3, #7209b7)',
+                'Natural': '#d4a574',
+                'Colored': '#ff6b6b',
+                'Patterned': 'linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1)',
+                'Blue Theme': '#4a90e2'
+            };
+            
+            return colorMap[colorName] || '#cccccc';
+        }
+        
+        // Function to open WhatsApp with order message
+        function openWhatsAppOrder(product, quantity = 1) {
+            const phoneNumber = "+250785762690";
+            const productLink = `${window.location.origin}${window.location.pathname}?product=${product.id}`;
+            
+            // Build variations string
+            let variationsString = '';
+            Object.keys(selectedVariations).forEach(key => {
+                if (selectedVariations[key]) {
+                    variationsString += `• ${key}: ${selectedVariations[key]}\n`;
+                }
+            });
+            
+            if (variationsString === '') {
+                variationsString = "• No specific options selected\n";
+            }
+            
+            const message = translations[currentLang].whatsappOrderMessage
+                .replace('{productName}', product.name)
+                .replace('{price}', formatPrice(product.price))
+                .replace('{quantity}', quantity)
+                .replace('{variations}', variationsString)
+                .replace('{productLink}', productLink);
+            
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            
+            window.open(whatsappURL, '_blank');
+        }
+        
+        // Function to format price with commas
+        function formatPrice(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        
+        // Function to get category display name
+        function getCategoryName(category) {
+            if (Array.isArray(category)) {
+                category = category[0];
+            }
+            
+            const categoryNames = {
+                'tech': currentLang === 'en' ? 'Tech Gadgets' : 'Ibikoresho bya Tekinoloji',
+                'devices': currentLang === 'en' ? 'Devices' : 'Ibikoresho bya Electronics',
+                'clothes': currentLang === 'en' ? 'Clothing' : 'Imyenda',
+                'tools': currentLang === 'en' ? 'Tools' : 'Ibikoresho',
+                'arts': currentLang === 'en' ? 'LED Wall Arts' : 'Ubugeni bwa LED ku rukuta',
+                'crafts': currentLang === 'en' ? 'Rwandan Crafts' : 'Ubugeni n\'Umuco',
+                'food': currentLang === 'en' ? 'Food & Snacks' : 'Ibiribwa n\'ibinyobwa'
+            };
+            
+            return categoryNames[category] || category;
+        }
+        
+        // Function to setup event listeners for filtering and sorting
+        function setupEventListeners() {
+            // Category filter buttons
+            document.querySelectorAll('.category-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter products
+                    const category = this.getAttribute('data-category');
+                    filterProducts(category);
+                });
+            });
+            
+            // Sort by select
+            document.getElementById('sortBy').addEventListener('change', function() {
+                sortProducts(this.value);
+            });
+            
+            // Price filter select
+            document.getElementById('priceFilter').addEventListener('change', function() {
+                filterByPrice(this.value);
+            });
+            
+            // Search input
+            document.getElementById('searchInput').addEventListener('input', function() {
+                searchProducts(this.value);
+            });
+        }
+        
+        // Function to filter products by category
+        function filterProducts(category) {
+            let filteredProducts = products;
+            
+            if (category !== 'all') {
+                filteredProducts = products.filter(product => {
+                    if (Array.isArray(product.category)) {
+                        return product.category.includes(category);
+                    } else {
+                        return product.category === category;
+                    }
+                });
+            }
+            
+            // Apply current price filter
+            const priceFilter = document.getElementById('priceFilter').value;
+            filteredProducts = applyPriceFilter(filteredProducts, priceFilter);
+            
+            // Apply current search
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            if (searchTerm) {
+                filteredProducts = filteredProducts.filter(product => 
+                    product.name.toLowerCase().includes(searchTerm) || 
+                    (product.description[currentLang] || product.description.en).toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            // Apply current sort
+            const sortBy = document.getElementById('sortBy').value;
+            filteredProducts = sortProductList(filteredProducts, sortBy);
+            
+            loadProducts(filteredProducts);
+        }
+        
+        // Function to sort products
+        function sortProducts(sortBy) {
+            const currentCategory = document.querySelector('.category-btn.active').getAttribute('data-category');
+            let filteredProducts = currentCategory === 'all' ? [...products] : products.filter(p => {
+                if (Array.isArray(p.category)) {
+                    return p.category.includes(currentCategory);
+                } else {
+                    return p.category === currentCategory;
+                }
+            });
+            
+            // Apply current price filter
+            const priceFilter = document.getElementById('priceFilter').value;
+            filteredProducts = applyPriceFilter(filteredProducts, priceFilter);
+            
+            // Apply current search
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            if (searchTerm) {
+                filteredProducts = filteredProducts.filter(product => 
+                    product.name.toLowerCase().includes(searchTerm) || 
+                    (product.description[currentLang] || product.description.en).toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            filteredProducts = sortProductList(filteredProducts, sortBy);
+            loadProducts(filteredProducts);
+        }
+        
+        // Function to sort product list
+        function sortProductList(productList, sortBy) {
+            switch(sortBy) {
+                case 'price-low':
+                    return productList.sort((a, b) => a.price - b.price);
+                case 'price-high':
+                    return productList.sort((a, b) => b.price - a.price);
+                case 'name':
+                    return productList.sort((a, b) => a.name.localeCompare(b.name));
+                default:
+                    return productList;
+            }
+        }
+        
+        // Function to filter by price
+        function filterByPrice(priceRange) {
+            const currentCategory = document.querySelector('.category-btn.active').getAttribute('data-category');
+            let filteredProducts = currentCategory === 'all' ? [...products] : products.filter(p => {
+                if (Array.isArray(p.category)) {
+                    return p.category.includes(currentCategory);
+                } else {
+                    return p.category === currentCategory;
+                }
+            });
+            
+            filteredProducts = applyPriceFilter(filteredProducts, priceRange);
+            
+            // Apply current search
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            if (searchTerm) {
+                filteredProducts = filteredProducts.filter(product => 
+                    product.name.toLowerCase().includes(searchTerm) || 
+                    (product.description[currentLang] || product.description.en).toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            // Apply current sort
+            const sortBy = document.getElementById('sortBy').value;
+            filteredProducts = sortProductList(filteredProducts, sortBy);
+            
+            loadProducts(filteredProducts);
+        }
+        
+        // Function to apply price filter
+        function applyPriceFilter(productList, priceRange) {
+            if (priceRange === 'all') return productList;
+            
+            if (priceRange === '0-10000') {
+                return productList.filter(p => p.price < 10000);
+            } else if (priceRange === '10000-50000') {
+                return productList.filter(p => p.price >= 10000 && p.price <= 50000);
+            } else if (priceRange === '50000-100000') {
+                return productList.filter(p => p.price >= 50000 && p.price <= 100000);
+            } else if (priceRange === '100000+') {
+                return productList.filter(p => p.price > 100000);
+            }
+            
+            return productList;
+        }
+        
+        // Function to search products
+        function searchProducts(searchTerm) {
+            const currentCategory = document.querySelector('.category-btn.active').getAttribute('data-category');
+            let filteredProducts = currentCategory === 'all' ? [...products] : products.filter(p => {
+                if (Array.isArray(p.category)) {
+                    return p.category.includes(currentCategory);
+                } else {
+                    return p.category === currentCategory;
+                }
+            });
+            
+            // Apply current price filter
+            const priceFilter = document.getElementById('priceFilter').value;
+            filteredProducts = applyPriceFilter(filteredProducts, priceFilter);
+            
+            if (searchTerm) {
+                filteredProducts = filteredProducts.filter(product => 
+                    product.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                    (product.description[currentLang] || product.description.en).toLowerCase().includes(searchTerm.toLowerCase())
+                );
+            }
+            
+            // Apply current sort
+            const sortBy = document.getElementById('sortBy').value;
+            filteredProducts = sortProductList(filteredProducts, sortBy);
+            
+            loadProducts(filteredProducts);
+        }
+    </script>
+</body>
+</html>
