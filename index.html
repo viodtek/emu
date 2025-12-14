@@ -1967,5 +1967,100 @@ document.getElementById('scrollDownBtn').addEventListener('click', function() {
             loadProducts(filteredProducts);
         }
     </script>
+    <!-- Add this at the bottom of your script -->
+<script>
+// 404 Page HTML
+const notFoundPage = `
+<div class="container" style="text-align: center; padding: 100px 20px;">
+    <h1 style="font-size: 5rem; color: var(--primary); margin-bottom: 1rem;">404</h1>
+    <h2 style="font-size: 2rem; margin-bottom: 1.5rem;" data-en="Page Not Found" data-rw="Urupapuro Ntiruboneka">Page Not Found</h2>
+    <p style="font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;" 
+       data-en="The page you're looking for doesn't exist or has been moved." 
+       data-rw="Urupapuro ushaka ntiruboneka cyangwa rwahindutse ahandi.">
+        The page you're looking for doesn't exist or has been moved.
+    </p>
+    <a href="index.html" class="buy-btn" style="width: auto; display: inline-block; padding: 0.8rem 2rem;">
+        <i class="fas fa-home"></i> 
+        <span data-en="Back to Home" data-rw="Subira Ahabanza">Back to Home</span>
+    </a>
+</div>
+`;
+
+// Check if current page is valid
+function checkValidPage() {
+    const validPaths = ['https://emu.cwanda.site', '', '#/', '#/products', '/'];
+    const currentPath = window.location.pathname;
+    const currentHash = window.location.hash;
+    
+    // Check for product ID in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('product');
+    
+    // If product ID exists, check if it's valid
+    if (productId) {
+        const product = products.find(p => p.id === parseInt(productId));
+        if (!product) {
+            show404Page();
+        }
+    }
+    // If path is not index.html and no product parameter
+    else if (!validPaths.includes(currentPath) && 
+             currentPath !== '/' && 
+             !currentPath.endsWith('https://emu.cwanda.site') &&
+             !currentHash.startsWith('#/')) {
+        show404Page();
+    }
+}
+
+// Show 404 page
+function show404Page() {
+    // Hide header and nav
+    document.querySelector('header').style.display = 'none';
+    document.querySelector('nav').style.display = 'none';
+    
+    // Replace main content with 404 page
+    const mainContent = document.getElementById('main-content');
+    if (mainContent) {
+        mainContent.innerHTML = notFoundPage;
+        mainContent.style.padding = '0';
+        
+        // Update language for 404 page
+        updateLanguage();
+    }
+    
+    // Update page title
+    document.title = currentLang === 'en' ? '404 - Page Not Found | Emu Mart' : '404 - Urupapuro Ntiruboneka | Emu Mart';
+}
+
+// Initialize with 404 check
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+        checkValidPage();
+    }, 100);
+});
+</script>
+
+<!-- Add this CSS for the 404 page -->
+<style>
+/* 404 page animations */
+@keyframes fadeIn404 {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container[style*="text-align: center"] {
+    animation: fadeIn404 0.8s ease;
+}
+
+.container[style*="text-align: center"] h1 {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+</style>
 </body>
 </html>
