@@ -1463,7 +1463,9 @@ const badgeHTML = product.badge ?
         'Bestseller':'linear-gradient(135deg,#4361ee,#4895ef)',
         'New':'linear-gradient(135deg,#88f905,#08e90f)',
         'Sale':'linear-gradient(135deg,#e63946,#c1121f)',
-        'Rwandan': 'linear-gradient(135deg,black 80%, lavender 50%)'
+        'Rwandan': 'linear-gradient(135deg,black 80%, lavender 50%)',
+        'Trending': 'linear-gradient(135deg, #f4a261, #e76f51)',
+        'Premium': 'linear-gradient(135deg, #7209b7, #560bad)'
     }[product.badge] || 'linear-gradient(135deg,#4cc9f0,#2aa8cc)'}">${product.badge}</span>` : '';
                 
                 let variationsHTML = '';
@@ -1733,7 +1735,7 @@ if (product.variations && product.variations.color) {
                         <div class="color-options">
                             ${product.variations.color.map((color, index) => `
                                 <div class="color-option ${index === 0 ? 'active' : ''}" 
-                                     style="background-color: ${getColorValue(color)}"
+                                     style="background: ${getColorValue(color)}"
                                      title="${color}"
                                      data-color="${color}">
                                 </div>
@@ -1851,7 +1853,7 @@ if (product.variations && product.variations.color) {
         function getColorValue(colorName) {
             const colorMap = {
                 'Black': '#000000',
-                'White': '#ffffff',
+                'White': 'lavender',
                 'Blue': '#4361ee',
                 'Red': '#e63946',
                 'Gray': '#adb5bd',
@@ -1866,6 +1868,10 @@ if (product.variations && product.variations.color) {
                 'Pink Floral': '#f72585',
                 'Yellow Floral': '#ffd166',
                 'Warm White': '#f8f9fa',
+                'Chocolate': '#794633',
+                'White Cake': '#FCF8C7',
+                'Marble Cake': 'linear-gradient(#FCF8C7 65%, #794633 20%)',
+                'Orange': 'orange',
                 'Multicolor': 'linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)',
                 'Nebula Effect': 'linear-gradient(to right, #4361ee, #3a0ca3, #7209b7)',
                 'Natural': '#d4a574',
@@ -2114,27 +2120,6 @@ if (product.variations && product.variations.color) {
         }
     </script>
     <!-- Add this at the bottom of your script -->
-<script>
-    // Badge color mapping
-const badgeColors = {
-    'Bestseller': 'linear-gradient(135deg, #4cc9f0, #2aa8cc)',
-    'New': 'linear-gradient(135deg, #4361ee, #3a0ca3)',
-    'Sale': 'linear-gradient(135deg, #e63946, #c1121f)',
-    'Trending': 'linear-gradient(135deg, #f4a261, #e76f51)',
-    'Premium': 'linear-gradient(135deg, #7209b7, #560bad)',
-    'Rwandan': 'linear-gradient(135deg, #2a9d8f, #1d7873)'
-};
-
-// In product card generation:
-let badgeHTML = '';
-if (product.badge) {
-    const badgeColor = badgeColors[product.badge] || badgeColors['New'];
-    badgeHTML = `<span class="product-badge" style="background: ${badgeColor}">${product.badge}</span>`;
-}
-</script>
-
-
-
     
 <script>
 // Add this after products array
