@@ -1969,41 +1969,33 @@ document.getElementById('scrollDownBtn').addEventListener('click', function() {
     </script>
     <!-- Add this at the bottom of your script -->
 <script>
-// REPLACE THE ENTIRE "Show 404 page" section with this code:
+// Add this after products array
+let is404Shown = false;
 
-// 404 Page HTML with ghost icon
-const notFoundPage = `
-<div class="not-found-container">
-    <div class="ghost-icon">
-        <i class="fas fa-ghost"></i>
-    </div>
-    <h1>404</h1>
-    <h2 data-en="Oops! Page Not Found" data-rw="Oops! Urupapuro Ntiruboneka">Oops! Page Not Found</h2>
-    <p data-en="The page you're looking for doesn't exist or has been moved." 
-       data-rw="Urupapuro ushaka ntiruboneka cyangwa rwahindutse ahandi.">
-        The page you're looking for doesn't exist or has been moved.
-    </p>
-    <a href="https://emu.cwanda.site" class="buy-btn" style="width: auto; display: inline-block; padding: 0.8rem 2rem;">
-        <i class="fas fa-home"></i> 
-        <span data-en="Back to Home" data-rw="Subira Ahabanza">Back to Home</span>
-    </a>
-</div>
-`;
-
-// Check URL and show 404 if invalid
-function checkValidURL() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const productId = urlParams.get('product');
-    const hash = window.location.hash;
+function check404() {
+    if (is404Shown) return;
+    
     const path = window.location.pathname;
     
-    // Valid URLs for your site
-    const validPaths = ['/', '/index.html', ''];
-    const validHashes = ['', '#/', '#/products', '#/category/tech', '#/category/devices', 
-                        '#/category/clothes', '#/category/tools', '#/category/arts', 
-                        '#/category/crafts', '#/category/food'];
+    // Allow all file extensions (images, icons, CSS, JS, etc.)
+    const allowedExtensions = [
+        '.svg', '.png', '.jpg', '.jpeg', '.webp', '.gif',
+        '.css', '.js', '.json', '.ico', '.txt', '.xml'
+    ];
     
-    // Check if product ID exists and is valid
+    // Check if path has an allowed extension
+    const hasExtension = allowedExtensions.some(ext => path.endsWith(ext));
+    
+    // Check if it's a valid product page
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('product');
+    
+    if (hasExtension) {
+        // It's a file request, not a page - allow it
+        return;
+    }
+    
+    // Check for invalid product IDs
     if (productId) {
         const product = products.find(p => p.id === parseInt(productId));
         if (!product) {
@@ -2011,108 +2003,108 @@ function checkValidURL() {
             return;
         }
     }
-    // Check if path is valid (root or index only)
-    else if (!validPaths.includes(path) && path !== '/') {
-        show404Page();
-        return;
-    }
-    // Check if hash is valid (if present)
-    else if (hash && !validHashes.includes(hash) && !hash.startsWith('#/category/')) {
-        show404Page();
-        return;
+    
+    // Only show 404 for actual invalid paths (not files)
+    const validPaths = ['', '/', '/index.html'];
+    if (!validPaths.includes(path) && path !== '/' && !productId) {
+        // Check if it looks like a product path (has no extension)
+        if (!path.includes('.')) {
+            show404Page();
+        }
     }
 }
 
-// Show 404 page with ghost animation
 function show404Page() {
-    // Hide header and nav
-    document.querySelector('header').style.display = 'none';
-    document.querySelector('nav').style.display = 'none';
+    is404Shown = true;
     
-    // Replace main content with 404 page
+    // Hide header and nav
+    const header = document.querySelector('header');
+    const nav = document.querySelector('nav');
+    if (header) header.style.display = 'none';
+    if (nav) nav.style.display = 'none';
+    
+    // Show 404 content
     const mainContent = document.getElementById('main-content');
     if (mainContent) {
-        mainContent.innerHTML = notFoundPage;
-        mainContent.style.padding = '0';
-        mainContent.style.minHeight = '70vh';
-        mainContent.style.display = 'flex';
-        mainContent.style.alignItems = 'center';
-        mainContent.style.justifyContent = 'center';
+        mainContent.innerHTML = `
+            <div class="not-found-container">
+                <div class="ghost-icon">
+                    <i class="fas fa-ghost"></i>
+                </div>
+                <h1>404</h1>
+                <h2 data-en="Oops! Page Not Found" data-rw="Oops! Urupapuro Ntiruboneka">Oops! Page Not Found</h2>
+                <p data-en="The page you're looking for doesn't exist." 
+                   data-rw="Urupapuro ushaka ntiruboneka.">
+                    The page you're looking for doesn't exist.
+                </p>
+                <a href="/" class="buy-btn" style="width: auto; display: inline-block; padding: 0.8rem 2rem;">
+                    <i class="fas fa-home"></i> 
+                    <span data-en="Back to Home" data-rw="Subira Ahabanza">Back to Home</span>
+                </a>
+            </div>
+        `;
         
-        // Update language for 404 page
-        updateLanguage();
+        // Update language
+        if (typeof updateLanguage === 'function') {
+            updateLanguage();
+        }
     }
     
-    // Update page title
-    document.title = currentLang === 'en' ? '404 - Page Not Found | Emu Mart Rwanda' : '404 - Urupapuro Ntiruboneka | Emu Mart Rwanda';
+    // Update title
+    document.title = '404 - Page Not Found | Emu Mart Rwanda';
 }
 
-// Initialize with URL check
+// Add CSS for 404 page
+const style = document.createElement('style');
+style.textContent = `
+    .not-found-container {
+        text-align: center;
+        padding: 100px 20px;
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .ghost-icon {
+        font-size: 8rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+        animation: ghostFloat 3s ease-in-out infinite;
+    }
+    @keyframes ghostFloat {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        25% { transform: translateY(-15px) rotate(5deg); }
+        50% { transform: translateY(-25px) rotate(0deg); }
+        75% { transform: translateY(-15px) rotate(-5deg); }
+    }
+    .not-found-container h1 {
+        font-size: 5rem;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+    }
+    .not-found-container h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: var(--dark);
+    }
+    .not-found-container p {
+        font-size: 1.2rem;
+        margin-bottom: 2.5rem;
+        color: #666;
+        max-width: 500px;
+    }
+`;
+document.head.appendChild(style);
+
+// Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(() => {
-        checkValidURL();
-    }, 100);
+    // Check after a short delay to allow normal page loading first
+    setTimeout(check404, 300);
 });
 
-// Add this CSS for the 404 page
-const notFoundCSS = `
-<style>
-.not-found-container {
-    text-align: center;
-    padding: 60px 20px;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.ghost-icon {
-    font-size: 8rem;
-    color: var(--primary);
-    margin-bottom: 1rem;
-    animation: ghostFloat 3s ease-in-out infinite;
-}
-
-@keyframes ghostFloat {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    25% { transform: translateY(-15px) rotate(5deg); }
-    50% { transform: translateY(-25px) rotate(0deg); }
-    75% { transform: translateY(-15px) rotate(-5deg); }
-}
-
-.not-found-container h1 {
-    font-size: 5rem;
-    color: var(--primary);
-    margin-bottom: 0.5rem;
-    animation: pulse 2s infinite;
-}
-
-.not-found-container h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: var(--dark);
-}
-
-.not-found-container p {
-    font-size: 1.2rem;
-    margin-bottom: 2.5rem;
-    color: #666;
-    line-height: 1.6;
-}
-
-@keyframes pulse {
-    0% { opacity: 0.7; transform: scale(0.95); }
-    50% { opacity: 1; transform: scale(1); }
-    100% { opacity: 0.7; transform: scale(0.95); }
-}
-
-@media (max-width: 576px) {
-    .ghost-icon { font-size: 6rem; }
-    .not-found-container h1 { font-size: 4rem; }
-    .not-found-container h2 { font-size: 1.5rem; }
-}
-</style>
-`;
-
-// Add the CSS to the document
-document.head.insertAdjacentHTML('beforeend', notFoundCSS);
+// Also check on hashchange for SPA navigation
+window.addEventListener('hashchange', check404);
+</script>
 </body>
 </html>
