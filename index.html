@@ -481,7 +481,8 @@
         
         .product-category {
             color: var(--accent);
-            font-size: 0.8rem;
+            font-size: 0.7rem;
+            font-style: italic;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -526,7 +527,6 @@
             padding: 0.3rem 0.6rem;
             background: #f1f1f1;
             border: 1px solid #ddd;
-
             border-radius: 40px;
             font-size: 0.8rem;
             cursor: pointer;
@@ -1457,10 +1457,14 @@ document.getElementById('scrollDownBtn').addEventListener('click', function() {
                 productCard.dataset.price = product.price;
                 productCard.style.animationDelay = `${index * 0.1}s`;
                 
-                let badgeHTML = '';
-                if (product.badge) {
-                    badgeHTML = `<span class="product-badge">${product.badge}</span>`;
-                }
+                // One-liner badge generation 
+const badgeHTML = product.badge ? 
+    `<span class="product-badge" style="background: ${{
+        'Bestseller':'linear-gradient(135deg,#4361ee,#4895ef)',
+        'New':'linear-gradient(135deg,#88f905,#08e90f)',
+        'Sale':'linear-gradient(135deg,#e63946,#c1121f)',
+        'Rwandan': 'linear-gradient(135deg,black 80%, lavender 50%)'
+    }[product.badge] || 'linear-gradient(135deg,#4cc9f0,#2aa8cc)'}">${product.badge}</span>` : '';
                 
                 let variationsHTML = '';
                 if (product.variations && product.variations.color) {
@@ -2110,7 +2114,24 @@ if (product.variations && product.variations.color) {
         }
     </script>
     <!-- Add this at the bottom of your script -->
+<script>
+    // Badge color mapping
+const badgeColors = {
+    'Bestseller': 'linear-gradient(135deg, #4cc9f0, #2aa8cc)',
+    'New': 'linear-gradient(135deg, #4361ee, #3a0ca3)',
+    'Sale': 'linear-gradient(135deg, #e63946, #c1121f)',
+    'Trending': 'linear-gradient(135deg, #f4a261, #e76f51)',
+    'Premium': 'linear-gradient(135deg, #7209b7, #560bad)',
+    'Rwandan': 'linear-gradient(135deg, #2a9d8f, #1d7873)'
+};
 
+// In product card generation:
+let badgeHTML = '';
+if (product.badge) {
+    const badgeColor = badgeColors[product.badge] || badgeColors['New'];
+    badgeHTML = `<span class="product-badge" style="background: ${badgeColor}">${product.badge}</span>`;
+}
+</script>
 
 
 
