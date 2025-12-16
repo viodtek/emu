@@ -1408,7 +1408,7 @@ document.getElementById('scrollDownBtn').addEventListener('click', function() {
         function loadProductDetail(productId) {
             const product = products.find(p => p.id === productId);
             if (!product) {
-                window.location.href = 'index.html';
+                window.location.href = 'productnotfound.html';
                 return;
             }
             
@@ -1419,7 +1419,7 @@ document.getElementById('scrollDownBtn').addEventListener('click', function() {
             const mainContent = document.getElementById('main-content');
             mainContent.innerHTML = `
                 <div class="container">
-                    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> ${translations[currentLang].backToProducts}</a>
+                    <a href="productnotfound.html" class="back-btn"><i class="fas fa-arrow-left"></i> ${translations[currentLang].backToProducts}</a>
                 </div>
                 <section class="product-detail-section">
                     <div class="container product-detail-container">
