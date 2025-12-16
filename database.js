@@ -1,13 +1,93 @@
- // Sample product data with local image paths
-        const products = [
-            {
+// EASY PRODUCT MANAGEMENT SYSTEM - database.js
+
+// ============================================
+// HELPER FUNCTIONS (Put these at the TOP)
+// ============================================
+
+// Auto-generate next product ID
+function getNextProductId() {
+    if (products.length === 0) return 1;
+    return Math.max(...products.map(p => p.id)) + 1;
+}
+
+// Easy function to add new products
+function addProduct(productData) {
+    const newProduct = {
+        id: getNextProductId(),
+        ...productData
+    };
+    products.push(newProduct);
+    console.log(`✅ Product added: ${newProduct.name} (ID: ${newProduct.id})`);
+    return newProduct;
+}
+
+// Function to update existing product
+function updateProduct(productId, updates) {
+    const index = products.findIndex(p => p.id === productId);
+    if (index !== -1) {
+        products[index] = { ...products[index], ...updates };
+        console.log(`✅ Product updated: ${products[index].name} (ID: ${productId})`);
+        return true;
+    }
+    console.log(`❌ Product not found: ID ${productId}`);
+    return false;
+}
+
+// Function to remove product
+function removeProduct(productId) {
+    const index = products.findIndex(p => p.id === productId);
+    if (index !== -1) {
+        const removed = products.splice(index, 1);
+        console.log(`🗑️ Product removed: ${removed[0].name} (ID: ${productId})`);
+        return true;
+    }
+    return false;
+}
+
+// ============================================
+// PRODUCT TEMPLATE (Copy & Paste for new products)
+// ============================================
+
+/*
+// TEMPLATE FOR NEW PRODUCTS (Copy this and fill in):
+{
+    name: "Product Name",
+    category: "category", // or ["category1", "category2"]
+    price: 10000,
+    image: "https://image-url.jpg",
+    images: [
+        "https://image1.jpg",
+        "https://image2.jpg"
+    ],
+    description: {
+        en: "English description",
+        rw: "Kinyarwanda description"
+    },
+    features: {
+        en: ["Feature 1", "Feature 2"],
+        rw: ["Feature 1 Kinyarwanda", "Feature 2 Kinyarwanda"]
+    },
+    variations: {
+        color: ["Red", "Blue"],
+        size: ["S", "M", "L"]
+    },
+    badge: "New" // Optional: "Bestseller", "New", "Sale", "Trending", "Premium", "Rwandan"
+}
+*/
+
+// ============================================
+// PRODUCT DATABASE (Your existing products)
+// ============================================
+
+const products = [
+ {
                 id: 1,
                 name: "Wireless Bluetooth Earbuds",
                 category: "tech",
                 price: 25000,
-                image: "https://i.ibb.co/BHV851M3/Untitleddesign-10.webp",
+                image: "https://i.ibb.co/fV9J0vn0/earpods.png",
                 images: [
-                    "https://i.ibb.co/BHV851M3/Untitleddesign-10.webp",
+                    "https://i.ibb.co/fV9J0vn0/earpods.png",
                     "https://i.ibb.co/0jH4n3kk/apple-airpods-3rd-generation-wireless.jpg"
                 ],
                 description: {
@@ -107,38 +187,6 @@
             },
             {
                 id: 4,
-                name: "Professional Tool Kit",
-                category: "tools",
-                price: 65000,
-                image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-                images: [
-                    "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-                ],
-                description: {
-                    en: "Complete tool kit for professional and home use. Durable and reliable for all your projects.",
-                    rw: "Igikoresho cyuzuye cy'ibikoresho kugirango ukoreshe mu mishinga no murugo. Cyakozwe neza kandi gikora neza."
-                },
-                features: {
-                    en: [
-                        "125-piece set",
-                        "Durable steel construction",
-                        "Portable case",
-                        "Lifetime warranty"
-                    ],
-                    rw: [
-                        "Igikoresho cy'ibice 125",
-                        "Yakozwe mu cyuma kikomeye",
-                        "Igisanduku cyoroshye guhanagura",
-                        "Garanti y'ubuzima bwose"
-                    ]
-                },
-                variations: {
-                    type: ["Standard", "Premium", "Heavy Duty"]
-                },
-                badge: "Sale"
-            },
-            {
-                id: 5,
                 name: "LED Wall Art - Mountain",
                 category: "arts",
                 price: 45000,
@@ -170,7 +218,7 @@
                 }
             },
             {
-                id: 6,
+                id: 5,
                 name: "Rwandan Crafts - Agaseke Basket",
                 category: "crafts",
                 price: 18000,
@@ -234,76 +282,76 @@
                     ripeness: ["Ready to eat", "Will ripen in 2-3 days"]
                 }
             },
+            // {
+            //     id: 8,
+            //     name: "Gaming Laptop",
+            //     category: ["tech", "devices"],
+            //     price: 450000,
+            //     image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+            //     images: [
+            //         "https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+            //     ],
+            //     description: {
+            //         en: "High-performance gaming laptop with RTX graphics. Perfect for gamers and content creators.",
+            //         rw: "Laptop y'umukino ifite imikorere myiza kandi ifite RTX graphics. Byiza cyane kuri abakinnyi n'abarema ibirimo."
+            //     },
+            //     features: {
+            //         en: [
+            //             "RTX 3060 GPU",
+            //             "Intel i7 processor",
+            //             "16GB RAM, 1TB SSD",
+            //             "144Hz display",
+            //             "RGB keyboard"
+            //         ],
+            //         rw: [
+            //             "RTX 3060 GPU",
+            //             "Intel i7 processor",
+            //             "16GB RAM, 1TB SSD",
+            //             "Display ya 144Hz",
+            //             "Mwandiko wa RGB"
+            //         ]
+            //     },
+            //     variations: {
+            //         storage: ["512GB SSD", "1TB SSD", "1TB SSD + 1TB HDD"],
+            //         ram: ["16GB", "32GB"]
+            //     },
+            //     badge: "Premium"
+            // },
+            // {
+            //     id: 8,
+            //     name: "Women's Summer Dress",
+            //     category: "clothes",
+            //     price: 22000,
+            //     image: "https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+            //     images: [
+            //         "https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+            //     ],
+            //     description: {
+            //         en: "Light and comfortable summer dress with floral pattern. Perfect for warm Rwandan weather.",
+            //         rw: "Ikanzu yoroshye kandi yoroheje y'impeshyi ifite imyambarire y'uburabyo. Byiza cyane kuri ikirere cy'u Rwanda."
+            //     },
+            //     features: {
+            //         en: [
+            //             "Lightweight cotton blend",
+            //             "Floral pattern",
+            //             "Machine washable",
+            //             "Available in multiple sizes"
+            //         ],
+            //         rw: [
+            //             "Igipimo cyoroshye cy'ipira",
+            //             "Imyambarire y'uburabyo",
+            //             "Koyamba mu mashini",
+            //             "Bibarwa mu mizingo myinshi"
+            //         ]
+            //     },
+            //     variations: {
+            //         color: ["Blue Floral", "Pink Floral", "Yellow Floral", "White"],
+            //         size: ["XS", "S", "M", "L", "XL"]
+            //     },
+            //     badge: "Trending"
+            // },
             {
-                id: 8,
-                name: "Gaming Laptop",
-                category: ["tech", "devices"],
-                price: 450000,
-                image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-                images: [
-                    "https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-                ],
-                description: {
-                    en: "High-performance gaming laptop with RTX graphics. Perfect for gamers and content creators.",
-                    rw: "Laptop y'umukino ifite imikorere myiza kandi ifite RTX graphics. Byiza cyane kuri abakinnyi n'abarema ibirimo."
-                },
-                features: {
-                    en: [
-                        "RTX 3060 GPU",
-                        "Intel i7 processor",
-                        "16GB RAM, 1TB SSD",
-                        "144Hz display",
-                        "RGB keyboard"
-                    ],
-                    rw: [
-                        "RTX 3060 GPU",
-                        "Intel i7 processor",
-                        "16GB RAM, 1TB SSD",
-                        "Display ya 144Hz",
-                        "Mwandiko wa RGB"
-                    ]
-                },
-                variations: {
-                    storage: ["512GB SSD", "1TB SSD", "1TB SSD + 1TB HDD"],
-                    ram: ["16GB", "32GB"]
-                },
-                badge: "Premium"
-            },
-            {
-                id: 9,
-                name: "Women's Summer Dress",
-                category: "clothes",
-                price: 22000,
-                image: "https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-                images: [
-                    "https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-                ],
-                description: {
-                    en: "Light and comfortable summer dress with floral pattern. Perfect for warm Rwandan weather.",
-                    rw: "Ikanzu yoroshye kandi yoroheje y'impeshyi ifite imyambarire y'uburabyo. Byiza cyane kuri ikirere cy'u Rwanda."
-                },
-                features: {
-                    en: [
-                        "Lightweight cotton blend",
-                        "Floral pattern",
-                        "Machine washable",
-                        "Available in multiple sizes"
-                    ],
-                    rw: [
-                        "Igipimo cyoroshye cy'ipira",
-                        "Imyambarire y'uburabyo",
-                        "Koyamba mu mashini",
-                        "Bibarwa mu mizingo myinshi"
-                    ]
-                },
-                variations: {
-                    color: ["Blue Floral", "Pink Floral", "Yellow Floral", "White"],
-                    size: ["XS", "S", "M", "L", "XL"]
-                },
-                badge: "Trending"
-            },
-            {
-                id: 10,
+                id: 6,
                 name: "Cordless Drill Set",
                 category: "tools",
                 price: 35000,
@@ -336,7 +384,7 @@
                 }
             },
             {
-                id: 11,
+                id: 7,
                 name: "LED Galaxy Projector",
                 category: "arts",
                 price: 32000,
@@ -369,7 +417,7 @@
                 }
             },
             {
-                id: 12,
+                id: 8,
                 name: "Organic Banana Bunch",
                 category: "food",
                 price: 3000,
@@ -401,5 +449,194 @@
                     type: ["Regular", "Organic", "Plantain"],
                     size: ["Small Bunch", "Medium Bunch", "Large Bunch"]
                 }
-            }
-        ];
+            },
+            {
+                id: 9,
+                name: "LED Wall Art - Mountain",
+                category: "arts",
+                price: 45000,
+                image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                images: [
+                    "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                ],
+                description: {
+                    en: "Beautiful LED backlit wall art with remote-controlled colors. Transform your space with amazing lighting effects.",
+                    rw: "Ubugeni bwa LED ku rukuta bwiza bukoresha ibara ryinshi bikoresheje umuyoboro. Hindura aho utuye ukoresheje itara rihebuje."
+                },
+                features: {
+                    en: [
+                        "Multiple color modes",
+                        "Remote controlled",
+                        "Energy efficient LEDs",
+                        "Easy to install"
+                    ],
+                    rw: [
+                        "Uburyo bwinshi bw'amabara",
+                        "Bikoresheje umuyoboro",
+                        "LED zikoresha amashanyarazi make",
+                        "Byoroshye gushyiramo"
+                    ]
+                },
+                variations: {
+                    size: ["Small (30x40cm)", "Medium (50x70cm)", "Large (70x100cm)"],
+                    color: ["Warm White", "Multicolor", "Blue Theme"]
+                },
+                badge: "Trending"
+            },
+            {
+                id: 10,
+                name: "LED Wall Art - Mountain",
+                category: "arts",
+                price: 45000,
+                image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                images: [
+                    "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                ],
+                description: {
+                    en: "Beautiful LED backlit wall art with remote-controlled colors. Transform your space with amazing lighting effects.",
+                    rw: "Ubugeni bwa LED ku rukuta bwiza bukoresha ibara ryinshi bikoresheje umuyoboro. Hindura aho utuye ukoresheje itara rihebuje."
+                },
+                features: {
+                    en: [
+                        "Multiple color modes",
+                        "Remote controlled",
+                        "Energy efficient LEDs",
+                        "Easy to install"
+                    ],
+                    rw: [
+                        "Uburyo bwinshi bw'amabara",
+                        "Bikoresheje umuyoboro",
+                        "LED zikoresha amashanyarazi make",
+                        "Byoroshye gushyiramo"
+                    ]
+                },
+                variations: {
+                    size: ["Small (30x40cm)", "Medium (50x70cm)", "Large (70x100cm)"],
+                    color: ["Warm White", "Multicolor", "Blue Theme"]
+                },
+                badge: "Premium"
+            },
+];
+
+addProduct({
+    name: "Adidas Equipment Predator Running Shoes",
+    category: ["clothes"],
+    price: 85000,
+    image: "https://i.ibb.co/tMB2w1Ws/adidas.png",
+    images: [
+        "https://i.ibb.co/tMB2w1Ws/adidas.pn"
+    ],
+    description: {
+        en: "Premium adidas running shoes with predator technology for maximum grip and comfort. Perfect for athletes and fitness enthusiasts.",
+        rw: "Adidas y'amacumu y'iruhande y'ubushobozi bwo kumvikanisha neza kandi ikomeye kuri abakinnyi n'abifuza gukora sport."
+    },
+    features: {
+        en: [
+            "Predator rubber outsole for superior grip",
+            "Breathable mesh upper",
+            "Cloudfoam midsole cushioning",
+            "Lightweight design",
+            "Available in multiple colors"
+        ],
+        rw: [
+            "Ubusanzwe bwa Predator bwo kumvikanisha neza",
+            "Icyerekezo cyo hejuru cyo guhumeka",
+            "Cloudfoam yo hagati yo gutanga umutekano",
+            "Imyitwarire yoroshye",
+            "Birashoboka mu ibara ryinshi"
+        ]
+    },
+    variations: {
+        color: ["White/Black", "Black/White", "Blue/White", "Red/Black"],
+        size: ["US 7", "US 8", "US 9", "US 10", "US 11", "US 12"]
+    },
+    badge: "Premium"
+});
+
+addProduct({
+    name: "Fanta Orange Mexico",
+    category: ["food"],
+    price: 1000,
+    image: "https://i.ibb.co/cnSvJL8/fanta-mexico.png",
+    images: [
+        "https://i.ibb.co/cnSvJL8/fanta-mexico.png"
+    ],
+    description: {
+        en: "Single glass bottle of Fanta Orange. This crisp, orange fruit-flavored soft drink is full of fizzy refreshment and deliciousness.",
+        rw: "Single glass bottle of Fanta Orange. This crisp, orange fruit-flavored soft drink is full of fizzy refreshment and deliciousness."
+    },
+    features: {
+        en: [
+            "Total Fat 0g     0%",
+            "Sodium 75mg      3%",
+            "Total Carbohydrate 43g     15%",
+            "Total Sugars 42g      -",
+            "Includes Added Sugars 42g     84%",
+            "Protein 0g     -"
+        ],
+        rw: [
+            "Ubusanzwe bwa Predator bwo kumvikanisha neza",
+            "Icyerekezo cyo hejuru cyo guhumeka",
+            "Cloudfoam yo hagati yo gutanga umutekano",
+            "Imyitwarire yoroshye",
+            "Birashoboka mu ibara ryinshi"
+        ]
+    },
+    variations: {
+        color: ["orange", "Sprite", "Coke", "Citron"],
+        size: ["12 fl oz", "16.9 fl oz"]
+    },
+    badge: "Premium"
+});
+
+addProduct({
+    name: "Marble Cake Chocolate",
+    category: ["food"],
+    price: 3000,
+    image: "https://i.ibb.co/KpD1xv8X/Marble-Cake-Chocolate.png",
+    images: [
+        "https://i.ibb.co/KpD1xv8X/Marble-Cake-Chocolate.png",
+        "https://i.ibb.co/1txw1QFx/Chocolate-Cake.png",
+        "https://i.ibb.co/4RKdgpc1/vanilla-Cake.png",
+        "https://i.ibb.co/MyF296j4/Marble-Cake.png"
+    ],
+    description: {
+        en: "Marble cake is a classic childhood cooking memory. Whether using lurid colours for a psychedelic finish, or just chocolate and vanilla, it's a teatime treat.",
+        rw: "Marble cake is a classic childhood cooking memory. Whether using lurid colours for a psychedelic finish, or just chocolate and vanilla, it's a teatime treat."
+    },
+    features: {
+        en: [
+            "Marble Cake",
+            "Vanilla Cake",
+            "Chocolate Cake"
+        ],
+        rw: [
+            "Kake ya Marble",
+            "Kake ya Vanilla",
+            "Kake ya Shokora"
+        ]
+    },
+    variations: {
+        color: ["Marble Cake", "Chocolate",  "White Cake"],
+        size: ["500g", "1kg"]
+    },
+    badge: "New"
+});
+
+
+/*
+// To add more products later, just use:
+addProduct({
+    name: "New Product Name",
+    category: "tech",
+    price: 15000,
+    image: "image-url.jpg",
+    // ... other fields
+});
+
+// To update a product:
+updateProduct(1, { price: 20000, badge: "Sale" });
+
+// To remove a product:
+removeProduct(3);
+*/
