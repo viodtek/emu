@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Not Found | Emu Mart Rwanda</title>
+    <link rel="icon" type="image/svg+xml" href="emu.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4361ee, #3f37c9);
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 500px;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        .ghost-icon {
+            font-size: 8rem;
+            margin-bottom: 1rem;
+            animation: ghostFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes ghostFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(5deg); }
+            50% { transform: translateY(-25px) rotate(0deg); }
+            75% { transform: translateY(-15px) rotate(-5deg); }
+        }
+        
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .countdown {
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: inline-block;
+        }
+        
+        .home-btn {
+            display: inline-block;
+            background: white;
+            color: #4361ee;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+        }
+        
+        .home-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 576px) {
+            .ghost-icon { font-size: 6rem; }
+            h1 { font-size: 3rem; }
+            h2 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="ghost-icon">
+            <i class="fas fa-ghost"></i>
+        </div>
+        <h1>404</h1>
+        <h2>Product Not Found</h2>
+        <p>The product you're looking for doesn't exist or has been removed from our store.</p>
+        <div class="countdown" id="countdown">
+            Redirecting to home in <span id="seconds">2</span> seconds...
+        </div>
+        <a href="/" class="home-btn">
+            <i class="fas fa-home"></i> Go Home Now
+        </a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script>
+        let seconds = 2;
+        const countdownElement = document.getElementById('seconds');
+        
+        function updateCountdown() {
+            countdownElement.textContent = seconds;
+            if (seconds <= 0) {
+                window.location.href = "/";
+            } else {
+                seconds--;
+                setTimeout(updateCountdown, 1000);
+            }
+        }
+        
+        // Start countdown
+        setTimeout(() => {
+            updateCountdown();
+        }, 1000);
+        
+        // Redirect after 2 seconds regardless
+        setTimeout(() => {
+            window.location.href = "/";
+        }, 2000);
+    </script>
+</body>
+</html>
