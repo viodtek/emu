@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/productnotfound.html"
+      "destination": "/index.html"
     }
   ],
   "headers": [
