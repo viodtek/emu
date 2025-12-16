@@ -401,43 +401,5 @@
                     type: ["Regular", "Organic", "Plantain"],
                     size: ["Small Bunch", "Medium Bunch", "Large Bunch"]
                 }
-            },
-         // Add this product object to your products array
-{
-    id: products.length + 1, // Auto-increment ID
-    name: "Adidas Equipment Predator Running Shoes",
-    category: ["clothes", "devices"],
-    price: 85000,
-    image: "https://assets.adidas.com/images/w_600,f_auto,q_auto/6b9da39dcb1f4863b59eb38424578fe7_9366/adidas_Equipment_Predator_Run_Shoes_White_JS4340_01_standard.jpg",
-    images: [
-        "https://assets.adidas.com/images/w_600,f_auto,q_auto/6b9da39dcb1f4863b59eb38424578fe7_9366/adidas_Equipment_Predator_Run_Shoes_White_JS4340_01_standard.jpg",
-        "https://assets.adidas.com/images/w_600,f_auto,q_auto/c9b0ea123e8949b4bb03ae322a325f71_9366/adidas_Equipment_Predator_Run_Shoes_White_JS4340_02_standard_hover.jpg",
-        "https://assets.adidas.com/images/w_600,f_auto,q_auto/0c0b43ee66f74e5e8f79ae3026feb77f_9366/adidas_Equipment_Predator_Run_Shoes_White_JS4340_41_detail.jpg"
-    ],
-    description: {
-        en: "Premium adidas running shoes with predator technology for maximum grip and comfort. Perfect for athletes and fitness enthusiasts.",
-        rw: "Adidas y'amacumu y'iruhande y'ubushobozi bwo kumvikanisha neza kandi ikomeye kuri abakinnyi n'abifuza gukora sport."
-    },
-    features: {
-        en: [
-            "Predator rubber outsole for superior grip",
-            "Breathable mesh upper",
-            "Cloudfoam midsole cushioning",
-            "Lightweight design",
-            "Available in multiple colors"
-        ],
-        rw: [
-            "Ubusanzwe bwa Predator bwo kumvikanisha neza",
-            "Icyerekezo cyo hejuru cyo guhumeka",
-            "Cloudfoam yo hagati yo gutanga umutekano",
-            "Imyitwarire yoroshye",
-            "Birashoboka mu ibara ryinshi"
-        ]
-    },
-    variations: {
-        color: ["White/Black", "Black/White", "Blue/White", "Red/Black"],
-        size: ["US 7", "US 8", "US 9", "US 10", "US 11", "US 12"]
-    },
-    badge: "New"
-}
+            }
         ];
