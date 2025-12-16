@@ -1,0 +1,24 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/fbhffghfnh",
+      "destination": "/404"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/index.html",
+      "has": [
+        {
+          "type": "host",
+          "value": "emu.cwanda.site"
+        }
+      ]
+    }
+  ]
+}
