@@ -358,6 +358,7 @@
             padding: 4rem 0;
             text-align: center;
             margin-bottom: 2rem;
+            height: 75vh;
         }
         
         .hero h1 {
@@ -387,23 +388,36 @@
             animation: fadeIn 0.8s ease;
         }
         
+ /* === PRODUCT CARDS REDESIGN === */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+
+/*            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));*/
             gap: 2rem;
             margin-top: 2rem;
         }
         
         .product-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
-            animation: fadeInUp 0.5s ease;
+            animation: fadeInUp 0.6s ease;
             opacity: 0;
             animation-fill-mode: forwards;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid rgba(67, 97, 238, 0.1);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(67, 97, 238, 0.15);
+            border-color: rgba(67, 97, 238, 0.3);
         }
         
         @keyframes fadeInUp {
@@ -417,11 +431,6 @@
             }
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
         .product-card:nth-child(1) { animation-delay: 0.1s; }
         .product-card:nth-child(2) { animation-delay: 0.2s; }
         .product-card:nth-child(3) { animation-delay: 0.3s; }
@@ -429,46 +438,60 @@
         .product-card:nth-child(5) { animation-delay: 0.5s; }
         .product-card:nth-child(6) { animation-delay: 0.6s; }
         
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        .product-image-container {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.08);
         }
         
         .product-badge {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            background: var(--danger);
+            top: 12px;
+            left: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
-            padding: 0.3rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
             z-index: 2;
-        }
-        
-        .product-image {
-            height: 180px;
-            width: 100%;
-            object-fit: cover;
-            background-color: #f5f5f5;
-            transition: transform 0.5s ease;
-        }
-        
-        .product-card:hover .product-image {
-            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
+            font-family: 'Jost', sans-serif;
         }
         
         .product-info {
-            padding: 1.5rem;
+            padding: 1.4rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
         
         .product-category {
             color: var(--accent);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 600;
             text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 0.5rem;
+            display: inline-block;
+            background: rgba(72, 149, 239, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            align-self: flex-start;
+            font-family: 'Jost', sans-serif;
         }
         
         .product-title {
@@ -516,31 +539,124 @@
             color: white;
             border-color: var(--primary);
         }
-        .container-buy-btn{
-            width: 100%;
-            bottom: 0;
-            height: 10;
+        
+        .price-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 0.1rem;
+            border-top: 1px solid #eee;
+/*            background: red;*/
         }
+        
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+             padding-top: 1rem;
+        }
+        
+        .price-currency {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #666;
+        }
+        
         .buy-btn {
-            margin-bottom: 20%;
-            display: block;
-            width: 100%;
-            padding: 0.8rem;
-            background: linear-gradient(to right, var(--primary), var(--accent));
+            padding: 0.60rem 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
             border: none;
-            border-radius: 6px;
-            font-weight: 600;
+            border-radius: 8px;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
             text-align: center;
             text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-shrink: 0;
+            font-family: 'Jost', sans-serif;
         }
         
         .buy-btn:hover {
-            background: linear-gradient(to right, var(--secondary), var(--primary));
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.3);
+        }
+        
+        .buy-btn i {
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 1.25rem;
+            }
+            
+            .product-image-container {
+                height: 200px;
+            }
+            
+            .product-info {
+                padding: 1.25rem;
+            }
+            
+            .product-title {
+                font-size: 1.1rem;
+            }
+            
+            .product-price {
+                font-size: 1.3rem;
+            }
+            
+            .buy-btn {
+                padding: 0.65rem 1.25rem;
+                font-size: 0.85rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .product-image-container {
+                height: 220px;
+            }
+            
+            body {
+                padding: 15px;
+            }
         }
         /* Hide navigation on single product page */
 body:has(.product-detail-section) nav {
@@ -1026,6 +1142,7 @@ document.addEventListener('click', function(e) {
     animation: bounce 2s infinite;
     z-index: 10;
     transition: all 0.3s;
+    margin-top: 30px;
 }
 
 .scroll-down-btn:hover {
@@ -1133,7 +1250,7 @@ document.getElementById('scrollDownBtn').addEventListener('click', function() {
         // Language translations
         const translations = {
             en: {
-                "buyNow": "Buy Now",
+                "buyNow": "Buy",
                 "buyNowWhatsApp": "Buy Now on WhatsApp",
                 "quantity": "Quantity:",
                 "productFeatures": "Product Features",
@@ -1155,7 +1272,7 @@ document.getElementById('scrollDownBtn').addEventListener('click', function() {
                 }
             },
             rw: {
-                "buyNow": "Gura Nonaha",
+                "buyNow": "Gura",
                 "buyNowWhatsApp": "Gurira Aha kuri WhatsApp",
                 "quantity": "Umubare:",
                 "productFeatures": "Ibiranga Igicuruzwa",
@@ -1357,18 +1474,43 @@ document.getElementById('scrollDownBtn').addEventListener('click', function() {
                     variationsHTML += `</div>`;
                 }
                 
-                productCard.innerHTML = `
-                    ${badgeHTML}
-                    <img src="${product.image}" alt="${product.name} - Emu Mart Rwanda" class="product-image" onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'">
-                    <div class="product-info">
-                        <div class="product-category">${getCategoryName(product.category)}</div>
-                        <h3 class="product-title">${product.name}</h3>
-                        <p class="product-description">${product.description[currentLang] || product.description.en}</p>
-                        ${variationsHTML}
-                        <div class="product-price">${formatPrice(product.price)} FRW</div>
-                        <a href="#" class="buy-btn" data-product-id="${product.id}">${translations[currentLang].buyNow}</a>
-                    </div>
-                `;
+                // REPLACE your current productCard.innerHTML code with this:
+
+productCard.innerHTML = `
+    ${badgeHTML}
+    <div class="product-image-container">
+        <img src="${product.image}" alt="${product.name} - Emu Mart Rwanda" class="product-image" 
+             onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'">
+    </div>
+    <div class="product-info">
+        <div class="product-category">${getCategoryName(product.category)}</div>
+        <h3 class="product-title">${product.name}</h3>
+        <p class="product-description">${product.description[currentLang] || product.description.en}</p>
+        ${variationsHTML}
+        <div class="price-container">
+            <div class="product-price">
+                ${formatPrice(product.price)} <span class="price-currency">FRW</span>
+            </div>
+            <a href="#" class="buy-btn" data-product-id="${product.id}">
+                <i class="fas fa-shopping-cart"></i> ${translations[currentLang].buyNow}
+            </a>
+        </div>
+    </div>
+`;
+
+// ALSO update the variationsHTML generation to match new styling:
+if (product.variations && product.variations.color) {
+    variationsHTML = `<div class="product-variations">`;
+    product.variations.color.slice(0, 3).forEach(color => {
+        variationsHTML += `<span class="variation-btn">${color}</span>`;
+    });
+    if (product.variations.color.length > 3) {
+        variationsHTML += `<span class="variation-btn">+${product.variations.color.length - 3}</span>`;
+    }
+    variationsHTML += `</div>`;
+} else {
+    variationsHTML = `<div class="product-variations" style="min-height: 0;"></div>`;
+}
                 
                 productsContainer.appendChild(productCard);
             });
