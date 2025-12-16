@@ -1969,50 +1969,61 @@ document.getElementById('scrollDownBtn').addEventListener('click', function() {
     </script>
     <!-- Add this at the bottom of your script -->
 <script>
-// 404 Page HTML
+// REPLACE THE ENTIRE "Show 404 page" section with this code:
+
+// 404 Page HTML with ghost icon
 const notFoundPage = `
-<div class="container" style="text-align: center; padding: 100px 20px;">
-    <h1 style="font-size: 5rem; color: var(--primary); margin-bottom: 1rem;">404</h1>
-    <h2 style="font-size: 2rem; margin-bottom: 1.5rem;" data-en="Page Not Found" data-rw="Urupapuro Ntiruboneka">Page Not Found</h2>
-    <p style="font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;" 
-       data-en="The page you're looking for doesn't exist or has been moved." 
+<div class="not-found-container">
+    <div class="ghost-icon">
+        <i class="fas fa-ghost"></i>
+    </div>
+    <h1>404</h1>
+    <h2 data-en="Oops! Page Not Found" data-rw="Oops! Urupapuro Ntiruboneka">Oops! Page Not Found</h2>
+    <p data-en="The page you're looking for doesn't exist or has been moved." 
        data-rw="Urupapuro ushaka ntiruboneka cyangwa rwahindutse ahandi.">
         The page you're looking for doesn't exist or has been moved.
     </p>
-    <a href="index.html" class="buy-btn" style="width: auto; display: inline-block; padding: 0.8rem 2rem;">
+    <a href="https://emu.cwanda.site" class="buy-btn" style="width: auto; display: inline-block; padding: 0.8rem 2rem;">
         <i class="fas fa-home"></i> 
         <span data-en="Back to Home" data-rw="Subira Ahabanza">Back to Home</span>
     </a>
 </div>
 `;
 
-// Check if current page is valid
-function checkValidPage() {
-    const validPaths = ['https://emu.cwanda.site', '', '#/', '#/products', '/'];
-    const currentPath = window.location.pathname;
-    const currentHash = window.location.hash;
-    
-    // Check for product ID in URL
+// Check URL and show 404 if invalid
+function checkValidURL() {
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('product');
+    const hash = window.location.hash;
+    const path = window.location.pathname;
     
-    // If product ID exists, check if it's valid
+    // Valid URLs for your site
+    const validPaths = ['/', '/index.html', ''];
+    const validHashes = ['', '#/', '#/products', '#/category/tech', '#/category/devices', 
+                        '#/category/clothes', '#/category/tools', '#/category/arts', 
+                        '#/category/crafts', '#/category/food'];
+    
+    // Check if product ID exists and is valid
     if (productId) {
         const product = products.find(p => p.id === parseInt(productId));
         if (!product) {
             show404Page();
+            return;
         }
     }
-    // If path is not index.html and no product parameter
-    else if (!validPaths.includes(currentPath) && 
-             currentPath !== '/' && 
-             !currentPath.endsWith('https://emu.cwanda.site') &&
-             !currentHash.startsWith('#/')) {
+    // Check if path is valid (root or index only)
+    else if (!validPaths.includes(path) && path !== '/') {
         show404Page();
+        return;
+    }
+    // Check if hash is valid (if present)
+    else if (hash && !validHashes.includes(hash) && !hash.startsWith('#/category/')) {
+        show404Page();
+        return;
     }
 }
 
-// Show 404 page
+// Show 404 page with ghost animation
 function show404Page() {
     // Hide header and nav
     document.querySelector('header').style.display = 'none';
@@ -2023,44 +2034,85 @@ function show404Page() {
     if (mainContent) {
         mainContent.innerHTML = notFoundPage;
         mainContent.style.padding = '0';
+        mainContent.style.minHeight = '70vh';
+        mainContent.style.display = 'flex';
+        mainContent.style.alignItems = 'center';
+        mainContent.style.justifyContent = 'center';
         
         // Update language for 404 page
         updateLanguage();
     }
     
     // Update page title
-    document.title = currentLang === 'en' ? '404 - Page Not Found | Emu Mart' : '404 - Urupapuro Ntiruboneka | Emu Mart';
+    document.title = currentLang === 'en' ? '404 - Page Not Found | Emu Mart Rwanda' : '404 - Urupapuro Ntiruboneka | Emu Mart Rwanda';
 }
 
-// Initialize with 404 check
+// Initialize with URL check
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
-        checkValidPage();
+        checkValidURL();
     }, 100);
 });
-</script>
 
-<!-- Add this CSS for the 404 page -->
+// Add this CSS for the 404 page
+const notFoundCSS = `
 <style>
-/* 404 page animations */
-@keyframes fadeIn404 {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+.not-found-container {
+    text-align: center;
+    padding: 60px 20px;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
-.container[style*="text-align: center"] {
-    animation: fadeIn404 0.8s ease;
+.ghost-icon {
+    font-size: 8rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    animation: ghostFloat 3s ease-in-out infinite;
 }
 
-.container[style*="text-align: center"] h1 {
+@keyframes ghostFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-15px) rotate(5deg); }
+    50% { transform: translateY(-25px) rotate(0deg); }
+    75% { transform: translateY(-15px) rotate(-5deg); }
+}
+
+.not-found-container h1 {
+    font-size: 5rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
     animation: pulse 2s infinite;
 }
 
+.not-found-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--dark);
+}
+
+.not-found-container p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    color: #666;
+    line-height: 1.6;
+}
+
 @keyframes pulse {
-    0% { opacity: 0.8; }
-    50% { opacity: 1; }
-    100% { opacity: 0.8; }
+    0% { opacity: 0.7; transform: scale(0.95); }
+    50% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0.7; transform: scale(0.95); }
+}
+
+@media (max-width: 576px) {
+    .ghost-icon { font-size: 6rem; }
+    .not-found-container h1 { font-size: 4rem; }
+    .not-found-container h2 { font-size: 1.5rem; }
 }
 </style>
+`;
+
+// Add the CSS to the document
+document.head.insertAdjacentHTML('beforeend', notFoundCSS);
 </body>
 </html>
