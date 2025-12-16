@@ -2005,7 +2005,7 @@ function check404() {
     }
     
     // Only show 404 for actual invalid paths (not files)
-    const validPaths = ['', '/', '/productnotfound.html'];
+    const validPaths = ['', '/', '/index.html'];
     if (!validPaths.includes(path) && path !== '/' && !productId) {
         // Check if it looks like a product path (has no extension)
         if (!path.includes('.')) {
