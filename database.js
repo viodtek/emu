@@ -626,11 +626,12 @@ addProduct({
     name: "GoPro HERO 9 Black Action Camera",
     category: ["tech", "devices"],
     price: 578858,
-    image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    image: "https://i.ibb.co/tMrjFCgg/Go-Pro-HERO-9-Black.png",
     images: [
-        "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-        "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-        "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        "https://i.ibb.co/tMrjFCgg/Go-Pro-HERO-9-Black.png",
+        " https://i.ibb.co/tpGQtGhg/gopro.png",
+        "https://i.ibb.co/1J6nrZVC/gopro-2.png",
+        "https://i.ibb.co/VYHGWxMj/gopro-3.png"
     ],
     description: {
         en: "GoPro HERO 9 Black Action Camera with 4K 5.2K video, 20MP sensor, color front screen. Perfect for sports, adventure, and helmet mounting.",
