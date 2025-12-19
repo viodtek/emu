@@ -1572,10 +1572,10 @@ if (product.variations && product.variations.color) {
                 <section class="product-detail-section">
                     <div class="container product-detail-container">
                         <div class="product-image-gallery">
-                            <img src="${product.images[0]}" alt="${product.name} - Emu Mart Rwanda" class="main-product-image" id="main-product-image" onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'">
+                            <img src="${product.images[0]}" alt="${product.name} - Emu Mart Rwanda" class="main-product-image" id="main-product-image" onerror="this.src='https://i.ibb.co/DPyq26Q6/channels4-profile.png'">
                             <div class="product-thumbnails">
                                 ${product.images.map((img, index) => `
-                                    <img src="${img}" alt="${product.name} - View ${index+1}" class="thumbnail ${index === 0 ? 'active' : ''}" data-image="${img}" onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'">
+                                    <img src="${img}" alt="${product.name} - View ${index+1}" class="thumbnail ${index === 0 ? 'active' : ''}" data-image="${img}" onerror="this.src='https://i.ibb.co/DPyq26Q6/channels4-profile.png'">
                                 `).join('')}
                             </div>
                         </div>
