@@ -622,7 +622,87 @@ addProduct({
     },
     badge: "New"
 });
-
+addProduct({
+    name: "GoPro HERO 9 Black Action Camera",
+    category: ["tech", "devices"],
+    price: 578858,
+    image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    images: [
+        "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+        "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+        "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+    ],
+    description: {
+        en: "GoPro HERO 9 Black Action Camera with 4K 5.2K video, 20MP sensor, color front screen. Perfect for sports, adventure, and helmet mounting.",
+        rw: "GoPro HERO 9 Black Action Camera ifite video ya 4K 5.2K, sensor ya 20MP, ifoto y'imbabare imbere. Byiza cyane kuri sport, adventure, no gukoresha ku mutwe."
+    },
+    features: {
+        en: [
+            "5.2K video resolution",
+            "20MP image sensor",
+            "Touch screen & WiFi support",
+            "Electronic Image Stabilization",
+            "Interchangeable lens camera",
+            "Color front screen display",
+            "Helmet mount compatible"
+        ],
+        rw: [
+            "5.2K video resolution",
+            "Sensor y'amafoto ya 20MP",
+            "Ifoto yo gukoresha & WiFi",
+            "Electronic Image Stabilization",
+            "Kamera y'igitambaro ryihinduranya",
+            "Ifoto y'imbabare imbere",
+            "Bishobora gukoreshwa ku mutwe"
+        ]
+    },
+    variations: {
+        color: ["Black"],
+        resolution: ["5.2K", "4K"],
+        "Video Quality": ["4K", "5.2K"],
+        "Image Sensor": ["20MP"],
+        "Screen Type": ["Color Touch Screen"]
+    },
+    badge: "Premium"
+});
+addProduct({
+    name: "OEM OLED For Google Pixel 3A LCD Display Touch Digitizer Assembly",
+    category: ["tech", "devices"],
+    price: 47904,
+    image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    images: [
+        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+        "https://images.unsplash.com/photo-1546054451-aa5ddf5d1d5c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+    ],
+    description: {
+        en: "Original OEM OLED display with touch digitizer assembly for Google Pixel 3A. Complete screen replacement repair kit.",
+        rw: "OEM OLED ifoto ryerekana hamwe n'igitambaro cy'ibikoresho byo gukora Pixel 3A ya Google. Ifoto yuzuye yo kuvugurura."
+    },
+    features: {
+        en: [
+            "OEM quality OLED display",
+            "Touch screen digitizer assembly",
+            "Compatible with G020A, G020E, G020B, G020G, G020H",
+            "Capacitive touch screen",
+            "High-resolution display"
+        ],
+        rw: [
+            "OEM ikwirakwiza OLED",
+            "Ifoto y'igitambaro cy'ibikoresho",
+            "Bishobora gukoreshwa na G020A, G020E, G020B, G020G, G020H",
+            "Ifoto ya capacitive",
+            "Ikwirakwiza ry'igihanga cyiza"
+        ]
+    },
+    variations: {
+        type: ["LCD & Touch Screen Digitizer"],
+        "Touch Screen Type": ["Capacitive Screen"],
+        "Material": ["OLED"],
+        model: ["G020A", "G020E", "G020B", "G020G", "G020H"]
+    },
+    badge: "New"
+});
 
 /*
 // To add more products later, just use:
