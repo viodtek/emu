@@ -583,7 +583,7 @@ addProduct({
         ]
     },
     variations: {
-        color: ["orange", "Sprite", "Coke", "Citron"],
+        color: ["Orange", "Sprite", "Coke", "Citron"],
         size: ["12 fl oz", "16.9 fl oz"]
     },
     badge: "Premium"
@@ -669,12 +669,13 @@ addProduct({
 addProduct({
     name: "OEM OLED For Google Pixel 3A LCD Display Touch Digitizer Assembly",
     category: ["tech", "devices"],
-    price: 47904,
-    image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    price: 60000,
+    image: "https://i.ibb.co/GfCXSLmF/Google-pixel-3a-screen.png",
     images: [
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-        "https://images.unsplash.com/photo-1546054451-aa5ddf5d1d5c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        "https://i.ibb.co/GfCXSLmF/Google-pixel-3a-screen.png",
+        "https://i.ibb.co/99s5QNmF/Google-pixel-3a-screen-2.png",
+        "https://i.ibb.co/zH2MthWV/Google-pixel-3a-screen-3.png",
+        "https://i.ibb.co/N2CLj3Nd/Google-pixel-3a-screen-4.png"
     ],
     description: {
         en: "Original OEM OLED display with touch digitizer assembly for Google Pixel 3A. Complete screen replacement repair kit.",
